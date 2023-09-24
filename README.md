@@ -13,5 +13,20 @@ class Solution:
             final_word += word1[i] + word2[i]
         final_word += word1[i+1:] + word2[i+1:]
         return final_word
+
+# -- sol2
+class Solution:
+    def mergeAlternately(self, word1: str, word2: str) -> str:
+        wc1, wc2 = len(word1),  len(word2)
+        final_word = ""
+        i = 0
+        while (i < wc1 or i < wc2):
+            if i < wc1:
+                final_word += word1[i]
+            if i < wc2:
+                final_word += word2[i]
+            i += 1
+        return final_word
+
 ```
 
