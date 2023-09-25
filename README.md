@@ -39,3 +39,24 @@ class Solution:
         return [candies[idx] + extraCandies >= currMax for idx in range(n)]
             
 ```
+
+3. 345 https://leetcode.com/problems/reverse-vowels-of-a-string/description/
+```py3
+class Solution:
+    def reverseVowels(self, s: str) -> str:
+        rev_stack = []
+        vow_idx = set()
+        for idx, c in enumerate(s):
+            if c.lower() in set('aeiou'):
+                vow_idx.add(idx)
+                rev_stack.append(c)
+        
+        new_str = ""
+        for idx, c in enumerate(s):
+            if idx in vow_idx:
+                new_str += rev_stack.pop()
+            else:
+                new_str += c
+        
+        return new_str
+```
