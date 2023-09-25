@@ -30,3 +30,12 @@ class Solution:
 
 ```
 
+2. 1431 https://leetcode.com/problems/kids-with-the-greatest-number-of-candies/
+```py3
+class Solution:
+    def kidsWithCandies(self, candies: List[int], extraCandies: int) -> List[bool]:
+        n = len(candies)
+        currMax = max(candies)
+        return [candies[idx] + extraCandies >= currMax for idx in range(n)]
+            
+```
