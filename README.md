@@ -66,6 +66,13 @@ class Solution:
 class Solution:
     def reverseWords(self, s: str) -> str:
         return " ".join(reversed([w for w in s.split()]))
+
+    def reverseWords1(self, s: str) -> str:
+        ords = s.split()
+        out = ""
+        for i in range(len(words)-1, -1, -1):
+            out += " " + words[i]
+        return out.strip()
         
     def reverseWords2(self, s: str) -> str:
         word_stack = []
