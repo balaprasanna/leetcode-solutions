@@ -60,3 +60,33 @@ class Solution:
         
         return new_str
 ```
+
+4. 151 https://leetcode.com/problems/reverse-words-in-a-string
+```py3
+class Solution:
+    def reverseWords(self, s: str) -> str:
+        return " ".join(reversed([w for w in s.split()]))
+        
+    def reverseWords2(self, s: str) -> str:
+        word_stack = []
+        word = ""
+        prev_char = ""
+        for c in s.strip():
+            if c != " ":
+                word += c
+            elif prev_char != " ":
+                word_stack.append(word)
+                word = ""
+            elif prev_char == " ":
+                word = ""
+            prev_char = c
+        
+        word_stack.append(word)
+        
+        rev_str = ""
+        count = len(word_stack)
+        for i in range(count):
+            rev_str += " " + word_stack.pop()
+        return rev_str.strip()
+
+```
